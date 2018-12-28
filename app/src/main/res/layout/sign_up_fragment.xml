@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.trebit.restapitest.ui.login.signup.SignUpFragment" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        tools:context=".ui.signup.SignUpFragment">
+
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="id "
+            android:text="@={fragment.inputId}"/>
+
+
+        <EditText
+            android:id="@+id/et_pw1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_id"
+            android:hint="password 1 "
+            android:text="@={fragment.inputPw1}"/>
+
+        <EditText
+            android:id="@+id/et_pw2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_pw1"
+            android:hint="password 2"
+            android:text="@={fragment.inputPw2}"/>
+
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_pw2"
+            android:layout_alignParentRight="true"
+            android:text="가입"
+            android:onClick="@{fragment::onReqSignUp}"
+            />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_pw2"
+            android:layout_alignParentStart="true"
+            android:text="취소"
+            android:onClick="@{fragment::onCancel}"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</layout>
+
+
