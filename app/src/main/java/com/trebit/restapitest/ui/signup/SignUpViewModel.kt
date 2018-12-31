@@ -2,7 +2,7 @@ package com.trebit.restapitest.ui.signup
 
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
-import com.trebit.restapitest.remote.vo.UserVo
+import com.trebit.restapitest.model.UserVo
 import com.trebit.restapitest.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

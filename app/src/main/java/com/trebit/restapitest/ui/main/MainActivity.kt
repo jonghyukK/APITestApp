@@ -5,33 +5,36 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.trebit.restapitest.R
-import kotlinx.android.synthetic.main.main_activity.*
+import com.trebit.restapitest.ui.arraydata.ArrayDataFragment
+import com.trebit.restapitest.ui.main.addcontent.AddContentFragment
+import com.trebit.restapitest.ui.main.allcontent.AllContentFragment
+import com.trebit.restapitest.ui.main.mycontent.MyContentFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        addFragment(FirstFragment.newInstance())
+        addFragment(AllContentFragment.newInstance())
     }
-
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
         when (it.itemId) {
             R.id.navigation_first -> {
-                addFragment(FirstFragment.newInstance())
+                addFragment(AllContentFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.navigation_second -> {
-                addFragment(SecondFragment.newInstance())
+                addFragment(AddContentFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.navigation_third -> {
-                addFragment(ThirdFragment.newInstance())
+                addFragment(ArrayDataFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
         }

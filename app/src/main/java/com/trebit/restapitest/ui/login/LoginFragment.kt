@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.trebit.restapitest.R
-import com.trebit.restapitest.databinding.LoginFragmentBinding
+import com.trebit.restapitest.databinding.FragmentLoginBinding
 import com.trebit.restapitest.toast
 import com.trebit.restapitest.ui.signup.SignUpFragment
 import com.trebit.restapitest.ui.main.MainActivity
@@ -26,7 +26,7 @@ class LoginFragment : Fragment(){
     var inputPw = ""
     private lateinit var mContext : Context
     private lateinit var viewModel: LoginViewModel
-    private lateinit var mBinding : LoginFragmentBinding
+    private lateinit var mBinding : FragmentLoginBinding
 
     override fun onCreateView(
         inflater           : LayoutInflater,
@@ -34,7 +34,7 @@ class LoginFragment : Fragment(){
         savedInstanceState : Bundle?
     ): View {
 
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         mBinding.loginFragment = this
 
         return mBinding.root

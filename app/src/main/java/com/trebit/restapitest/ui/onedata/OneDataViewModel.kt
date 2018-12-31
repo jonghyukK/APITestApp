@@ -1,7 +1,7 @@
-package com.trebit.restapitest.ui.main
+package com.trebit.restapitest.ui.onedata
 
 import android.arch.lifecycle.ViewModel;
 
-class FirstViewModel : ViewModel() {
+class OneDataViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

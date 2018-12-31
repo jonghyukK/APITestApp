@@ -3,9 +3,9 @@ package com.trebit.restapitest.adapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.trebit.restapitest.ui.main.FirstFragment
-import com.trebit.restapitest.ui.main.SecondFragment
-import com.trebit.restapitest.ui.main.ThirdFragment
+import com.trebit.restapitest.ui.main.allcontent.AllContentFragment
+import com.trebit.restapitest.ui.main.addcontent.AddContentFragment
+import com.trebit.restapitest.ui.main.mycontent.MyContentFragment
 
 /**
  * RestAPITest
@@ -20,9 +20,9 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getCount(): Int = 3
 
     override fun getItem(position: Int): Fragment = when (position) {
-        0    -> FirstFragment .newInstance()
-        1    -> SecondFragment.newInstance()
-        else -> ThirdFragment .newInstance()
+        0    -> AllContentFragment.newInstance()
+        1    -> AddContentFragment.newInstance()
+        else -> MyContentFragment.newInstance()
     }
 
 

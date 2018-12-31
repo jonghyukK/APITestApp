@@ -8,7 +8,7 @@
     <data>
         <variable
             name="fragment"
-            type="com.trebit.restapitest.ui.login.signup.SignUpFragment" />
+            type="com.trebit.restapitest.ui.signup.SignUpFragment" />
 
     </data>
 

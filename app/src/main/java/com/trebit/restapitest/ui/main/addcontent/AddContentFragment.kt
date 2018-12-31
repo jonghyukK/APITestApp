@@ -1,4 +1,4 @@
-package com.trebit.restapitest.ui.main
+package com.trebit.restapitest.ui.main.addcontent
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,24 +9,24 @@ import android.view.ViewGroup
 
 import com.trebit.restapitest.R
 
-class SecondFragment : Fragment() {
+class AddContentFragment : Fragment() {
 
     companion object {
-        fun newInstance() = SecondFragment()
+        fun newInstance() = AddContentFragment()
     }
 
-    private lateinit var viewModel: SecondViewModel
+    private lateinit var viewModel: AddContentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.second_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_add_content, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SecondViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(AddContentViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

@@ -1,6 +1,6 @@
 package com.trebit.restapitest.remote
 
-import com.trebit.restapitest.remote.vo.UserVo
+import com.trebit.restapitest.model.UserVo
 import io.reactivex.Observable
 import retrofit2.http.*
 
