@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.navigation_third -> {
-                addFragment(ArrayDataFragment.newInstance())
+                addFragment(MyContentFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
         }

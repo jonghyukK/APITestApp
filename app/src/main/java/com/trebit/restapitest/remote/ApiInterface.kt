@@ -2,6 +2,7 @@ package com.trebit.restapitest.remote
 
 import com.trebit.restapitest.model.UserVo
 import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.*
 
 /**
@@ -15,19 +16,20 @@ import retrofit2.http.*
 interface ApiInterface {
 
     @GET("user")
-    fun getUserList(): Observable<List<UserVo>>
+    fun getUserList(): Single<List<UserVo>>
 
 
     @GET("user/selectUserById")
     fun selectUserById(
         @Query("id") id: String
-    ): Observable<UserVo>
+    ): Single<UserVo>
+
 
     @GET("user/checkLogin")
     fun checkLogin(
         @Query("id") id: String,
         @Query("pw") pw: String
-    ): Observable<String>
+    ): Single<String>
 
 
     @GET("user/createUser")
@@ -35,7 +37,7 @@ interface ApiInterface {
         @Query("id") id  : String,
         @Query("pw1") pw1: String,
         @Query("pw2") pw2: String
-    ): Observable<UserVo>
+    ): Single<UserVo>
 
 
 }

@@ -1,7 +1,6 @@
 package com.trebit.restapitest.ui.login
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -10,22 +9,29 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.trebit.restapitest.App
 import com.trebit.restapitest.R
 import com.trebit.restapitest.databinding.FragmentLoginBinding
 import com.trebit.restapitest.toast
-import com.trebit.restapitest.ui.signup.SignUpFragment
 import com.trebit.restapitest.ui.main.MainActivity
+import com.trebit.restapitest.ui.signup.SignUpFragment
+import javax.inject.Inject
 
-class LoginFragment : Fragment(){
+class LoginFragment : Fragment() {
 
     companion object {
         fun newInstance() = LoginFragment()
     }
 
+    init {
+        App.appComponent.inject(this)
+    }
+
+    @Inject lateinit var viewModel: LoginViewModel
+
     var inputId = ""
     var inputPw = ""
     private lateinit var mContext : Context
-    private lateinit var viewModel: LoginViewModel
     private lateinit var mBinding : FragmentLoginBinding
 
     override fun onCreateView(
@@ -43,13 +49,12 @@ class LoginFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mContext = activity!!.baseContext
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         viewModel.loginValid.observe(this, Observer {
 
             if ( it == true )
                 startActivity(Intent(mContext, MainActivity::class.java))
-            else toast(mContext, "Login Failed")
+            else mContext.toast { "Login Failed" }
         })
     }
 
@@ -59,7 +64,7 @@ class LoginFragment : Fragment(){
      */
     fun onPressedLogin(v: View) {
         if (inputId.isEmpty() || inputPw.isEmpty()) {
-            toast(mContext, "input ID or PW")
+            mContext.toast {  "input ID or PW" }
             return
         } else {
             viewModel.checkLoginInfo(inputId, inputPw)

@@ -43,14 +43,14 @@ class SignUpFragment : Fragment() {
     {
         super.onActivityCreated(savedInstanceState)
         mContext = activity!!.baseContext
-        viewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
+//        viewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
 
         viewModel.apiResult.observe(this, Observer {
             (activity as LoginActivity).showAlert(it?.id)
         })
 
         viewModel.apiError.observe(this, Observer {
-            toast(mContext, it!!)
+            mContext.toast { it!! }
         })
     }
 
@@ -69,9 +69,9 @@ class SignUpFragment : Fragment() {
         }
 
         when (inputState) {
-            State.EMPTY     -> toast(v.context, "find Empty Things. check Thins.")
-            State.NOT_MATCH -> toast(v.context, "PW1 and PW2 not equals, check pw1 and pw2")
-            State.MATCH     -> viewModel.requestSignUp(inputId, inputPw1, inputPw2)
+            State.EMPTY     -> mContext.toast { "find Empty Things. check Thins." }
+            State.NOT_MATCH -> mContext.toast { "PW1 and PW2 not equals, check pw1 and pw2" }
+//            State.MATCH     -> viewModel.requestSignUp(inputId, inputPw1, inputPw2)
         }
     }
 

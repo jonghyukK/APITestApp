@@ -1,10 +1,11 @@
 package com.trebit.restapitest.repository
 
 import com.trebit.restapitest.model.UserVo
-import com.trebit.restapitest.remote.RESTClient
+import com.trebit.restapitest.remote.ApiInterface
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.Single
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * RestAPITest
@@ -14,10 +15,38 @@ import io.reactivex.schedulers.Schedulers
  * Description:
  */
 
-class UserRepository {
+@Singleton
+class UserRepository @Inject constructor(
+    private val apiInterface: ApiInterface
+){
 
-    private val mApiInterface = RESTClient.create()
 
-    fun getUserList(): Observable<List<UserVo>> = mApiInterface.getUserList()
+    fun checkLogin(id: String,
+                   pw: String
+    ): Single<String>
+            = apiInterface.checkLogin(id = id, pw = pw)
+
+
+
+    fun getUserList(): Single<List<UserVo>>
+            = apiInterface.getUserList()
+
+
+
+    fun selectUserById(id: String
+    ): Single<UserVo>
+            = apiInterface.selectUserById(id)
+
+
+    fun createUser(id  : String,
+                   pw1 : String,
+                   pw2 : String
+    ): Single<UserVo>
+            = apiInterface.createUser(id = id, pw1 = pw1, pw2 = pw2)
+
+
+
+
+
 
 }
